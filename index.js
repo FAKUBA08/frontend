@@ -16,7 +16,6 @@ let titan=document.querySelector('.block5-container')
 let carousel=document.querySelector('.carousel')
 let technolgyBtn=document.querySelector('.technolgyBtn')
 let lastContainer=document.querySelector('.lastContainer')
-const mq = window.matchMedia('(max-width: 907px)');
 destinaton.addEventListener('click',function(){
   bodyText.style.display='none'
   container.classList.add('des')
@@ -35,13 +34,7 @@ destinaton.addEventListener('click',function(){
 
 })
 active.addEventListener('click',function(){
-  
-if (mq.matches) {
-  bodyText.style.display = 'block';
-} else {
-  bodyText.style.display = 'flex';
-}
-    // bodyText.style.display='flex' 
+    bodyText.style.display='flex' 
     container.classList.remove('des')
     block2.style.display='none'
     mars.style.display='none'
@@ -55,6 +48,11 @@ if (mq.matches) {
     lastContainer.style.display='none'
     document.body.style.backgroundImage='url(picture/background-home-desktop.jpg)'
 
+        // Check if the .active section is displayed (based on its computed style)
+        const activeDisplayStyle = window.getComputedStyle(active).getPropertyValue('display');
+        if (activeDisplayStyle === 'flex' || activeDisplayStyle === 'block') {
+            blockText.style.display = 'block'; // Return .block01-text to its normal position
+        }
 
 })
 moonBtn.addEventListener('click',function(){

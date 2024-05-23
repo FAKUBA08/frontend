@@ -779,7 +779,7 @@
     @media only screen and (max-width:907px){
     .body-text{
     transform: translateY(12rem);
-    /* display: block; */
+    display: block;
     }
    .body-text .text{
     align-items: center;
@@ -798,7 +798,7 @@
     .menus{
     width: 100%;
     left: 21rem;
-    /* display: none; */
+    display: none;
     }
     .circle{
     transform: translate(-50%,-50%);
