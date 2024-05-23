@@ -15,10 +15,13 @@ let europa=document.querySelector('.block4-container')
 let titan=document.querySelector('.block5-container')
 let carousel=document.querySelector('.carousel')
 let technolgyBtn=document.querySelector('.technolgyBtn')
+let lastContainer=document.querySelector('.lastContainer')
+const mq = window.matchMedia('(max-width: 907px)');
 destinaton.addEventListener('click',function(){
   bodyText.style.display='none'
   container.classList.add('des')
   block2.style.display='block'
+  container.classList.remove('hidden')
   moon.style.display='flex'
   mars.style.display='none'
   titan.style.display='none'
@@ -26,10 +29,19 @@ destinaton.addEventListener('click',function(){
   blockText.style.display='none'
   carousel.style.display='none'
   container.classList.remove('tech')
+  lastContainer.style.display='none'
+  document.body.style.backgroundImage='url(picture/background-destination-desktop.jpg)'
+
 
 })
 active.addEventListener('click',function(){
-    bodyText.style.display='flex' 
+  
+if (mq.matches) {
+  bodyText.style.display = 'block';
+} else {
+  bodyText.style.display = 'flex';
+}
+    // bodyText.style.display='flex' 
     container.classList.remove('des')
     block2.style.display='none'
     mars.style.display='none'
@@ -40,6 +52,9 @@ active.addEventListener('click',function(){
     blockText.style.display='none'
     carousel.style.display='none'
     container.classList.remove('tech')
+    lastContainer.style.display='none'
+    document.body.style.backgroundImage='url(picture/background-home-desktop.jpg)'
+
 
 })
 moonBtn.addEventListener('click',function(){
@@ -91,6 +106,8 @@ crew.addEventListener('click',function(){
   blockText.style.display='block'
   carousel.style.display='block'
   container.classList.remove('tech')
+  lastContainer.style.display='none'
+  document.body.style.backgroundImage='url(picture/background-crew-desktop.jpg)'
 })
 technolgyBtn.addEventListener('click',function(){
   container.classList.add('tech')
@@ -100,9 +117,25 @@ technolgyBtn.addEventListener('click',function(){
   europa.style.display='none'
   block2.style.display='none'
   bodyText.style.display='none' 
-  blockText.style.display='block'
   carousel.style.display='none'
+  blockText.style.display='none'
+  lastContainer.style.display='block'
+  document.body.style.backgroundImage='  url(picture/background-technology-desktop.jpg'
 })
+const lastItems = document.querySelectorAll('.menuLast li');
+
+lastItems.forEach(li => {
+  li.addEventListener('click', function() {
+
+    lastItems.forEach(items => {
+      items.classList.remove('clicked');
+     
+    });
+    this.classList.add('clicked');
+  });
+});
+
+
 const slides = document.querySelectorAll('.slide');
 const dots = document.querySelectorAll('.dot');
 let currentSlideIndex = 0;
@@ -137,3 +170,25 @@ dots.forEach((dot, index) => {
 });
 
 intervalId = setInterval(showNextSlide, 5000);
+const option1=document.querySelector('.option1')
+const option2=document.querySelector('.option2')
+const option3=document.querySelector('.option3')
+const launch=document.querySelector('.launch')
+const launch2=document.querySelector('.launch2')
+const launch3=document.querySelector('.launch3')
+
+option2.addEventListener('click',function(){
+ launch.style.display='none'
+ launch2.style.display='flex'
+ launch3.style.display='none'
+})
+option1.addEventListener('click',function(){
+  launch.style.display='flex'
+  launch2.style.display='none'
+  launch3.style.display='none'
+ })
+ option3.addEventListener('click',function(){
+  launch.style.display='none'
+  launch3.style.display='flex'
+  launch2.style.display='none'
+ })
